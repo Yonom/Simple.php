@@ -1,17 +1,9 @@
 <? include 'app/simple.php';
 
-# Default page
-if (!$path[0])
-    $path[0] = 'index';
+SimplePhp::DefaultPage(0, 'index');               # Redirect example.com to example.com/index
+SimplePhp::NotFoundPage('views' , 0, 'notfound'); # If no view is found, display the /notfound page
 
-# If there is no view available, show a 404.
-if (!file_exists('app/views/'.$path[0].'.php'))
-    $path[0] = 'notfound';
-
-# If there is a controller available, invoke it
-if (file_exists('app/controllers/'.$path[0].'.php'))
-    include('app/controllers/'.$path[0].'.php');
-
-include 'app/templates/header.php';
-include('app/views/'.$path[0].'.php');
-include('app/templates/footer.php');
+SimplePhp::LoadDir('controllers', 0);             # Run the controller
+SimplePhp::LoadPage('templates', 'header');       # Display the header
+SimplePhp::LoadDir('views', 0);                   # Display the content
+SimplePhp::LoadPage('templates', 'footer');       # Display the footer
