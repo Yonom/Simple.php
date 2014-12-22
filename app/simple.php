@@ -1,0 +1,1 @@
+<?php $path = array_slice(explode('/', strtok($_SERVER["REQUEST_URI"], '?')), 1); $data = array();
