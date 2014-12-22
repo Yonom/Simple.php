@@ -12,6 +12,6 @@ if (!file_exists('app/views/'.$path[0].'.php'))
 if (file_exists('app/controllers/'.$path[0].'.php'))
     include('app/controllers/'.$path[0].'.php');
 
-include 'app/views/header.php';
+include 'app/templates/header.php';
 include('app/views/'.$path[0].'.php');
-include('app/views/footer.php');
+include('app/templates/footer.php');
