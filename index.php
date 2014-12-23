@@ -1,4 +1,4 @@
-<? include 'app/simple.php';
+<?php include 'app/simple.php';
 
 SimplePhp::DefaultPage(0, 'index');               # Redirect example.com to example.com/index
 SimplePhp::NotFoundPage('views' , 0, 'notfound'); # If no view is found, display the /notfound page

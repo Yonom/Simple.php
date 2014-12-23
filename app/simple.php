@@ -11,7 +11,7 @@ class SimplePhp {
 
     static function NotFoundPage($dir, $segment, $notfoundPage) {
         global $path;
-        if (!file_exists(SimplePhp::GetFile($dir, $path[$segment])));
+        if (!file_exists(SimplePhp::GetFile($dir, $path[$segment])))
             $path[$segment] = $notfoundPage;
     }
 
