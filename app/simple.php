@@ -1,8 +1,6 @@
 <?php $path = array_slice(explode('/', strtok($_SERVER["REQUEST_URI"], '?')), 1); $data = array();
 
 class SimplePhp {
-    private static $appPath = 'app';
-
     static function DefaultPage($segment, $defaultPage) {
         global $path;
         if (!$path[$segment])
@@ -25,6 +23,7 @@ class SimplePhp {
     }
 
     private static function IncludePage($page) {
+        global $path, $data;
         if (file_exists($page))
             include($page);
     }
@@ -34,6 +33,6 @@ class SimplePhp {
     }
 
     private static function GetPath($dir) {
-        return SimplePhp::$appPath . '/'. $dir . '/';
+        return dirname(__FILE__) . '/' . $dir . '/';
     }
 }
